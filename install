@@ -1,0 +1,15 @@
+#!/bin/sh
+mkdir -p ${HOME}/.vim/undo
+mkdir -p ${HOME}/.idapro/
+ln -sf ${HOME}/.dotfiles/bashrc ${HOME}/.bashrc
+ln -sf ${HOME}/.dotfiles/ctfrc ${HOME}/.ctfrc
+ln -sf ${HOME}/.dotfiles/gdbinit ${HOME}/.gdbinit
+ln -sf ${HOME}/.dotfiles/gef.rc ${HOME}/.gef.rc
+ln -sf ${HOME}/.dotfiles/gef-scripts ${HOME}/.gef-scripts
+ln -sf ${HOME}/.dotfiles/gitconfig ${HOME}/.gitconfig
+ln -sf ${HOME}/.dotfiles/inputrc ${HOME}/.inputrc
+ln -sf ${HOME}/.dotfiles/pythonrc ${HOME}/.pythonrc
+ln -sf ${HOME}/.dotfiles/tmux.conf ${HOME}/.tmux.conf
+ln -sf ${HOME}/.dotfiles/vimrc ${HOME}/.vimrc
+ln -sf ${HOME}/.dotfiles/vim-snippets ${HOME}/.vim/snippets
+ln -sf ${HOME}/.dotfiles/idauser.cfg ${HOME}/.idapro/idauser.cfg
