@@ -1,4 +1,3 @@
-" Lays <poca0725@gmail.com>
 
 set nocompatible               " be iMproved
 
