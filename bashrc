@@ -98,7 +98,6 @@ export LC_ALL="en_US.UTF-8"
 export PATH=~/bin:$PATH
 export EDITOR=vim
 export CLICOLOR=1
-export TERM=screen-256color
 export PIN_ROOT="$HOME/bin/pin"
 
 alias ..="cd .."
