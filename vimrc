@@ -17,9 +17,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/L9'
     Plug 'othree/vim-autocomplpop'
     Plug 'ctrlpvim/ctrlp.vim'
-    if has("python") || has("python3")
-        Plug 'SirVer/ultisnips'
-    endif
+    Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -27,7 +25,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'sheerun/vim-polyglot'
-    Plug 'msanders/cocoa.vim'
 call plug#end()
 
 "==============================================================
@@ -293,11 +290,13 @@ set pastetoggle=<F2>
 
 " <F3> toggles line number
 noremap <silent> <F3> :set nu!<CR>
-imap <silent><F3> <C-O><F3>
 
 " <F4> toggles line wrap
 noremap <silent> <F4> :set wrap!<CR>
 imap <silent><F4> <C-O><F4>
+
+" <F5> toggles mouse
+map <F5> <ESC>:exec &mouse!=""? "set mouse=" : "set mouse=a"<CR>
 
 " <F6> syntax sync
 noremap <F6> <Esc>:syntax sync fromstart<CR>
@@ -353,3 +352,5 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:polyglot_disabled = ['python']
+
+set secure
