@@ -82,7 +82,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-__git_ps1() 
+__git_ps1()
 {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
     echo " ["${ref#refs/heads/}"]";
@@ -166,7 +166,7 @@ docker-shell()
     docker exec -it $1 /bin/bash
 }
 
-# OSX / Windows
+# OSX
 if [ "$(uname)" == "Darwin" ]; then
     PS1='\[\033[38;5;214m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;31m\]$(__git_ps1)\[\033[00m\]\$ '
     export LSCOLORS="Exfxcxdxbxegedabagacad"
@@ -176,11 +176,5 @@ if [ "$(uname)" == "Darwin" ]; then
     alias deskhide="defaults write com.apple.finder CreateDesktop true;killall Finder"
     alias bubu="brew update && brew upgrade && brew cleanup"
     source $(brew --prefix)/etc/profile.d/autojump.sh
-elif [ "$(uname -o)" == "Msys" ]; then
-    export MSYS="winsymlinks:lnk"
-    alias python="winpty python"
-    alias ping="winpty ping"
-    alias ifconfig="ipconfig | iconv -f big5"
-    alias curl="curl -s"
 fi
 
