@@ -176,5 +176,7 @@ if [ "$(uname)" == "Darwin" ]; then
     alias deskhide="defaults write com.apple.finder CreateDesktop true;killall Finder"
     alias bubu="brew update && brew upgrade && brew cleanup"
     source $(brew --prefix)/etc/profile.d/autojump.sh
+elif grep -q Microsoft /proc/version; then
+    alias open="explorer.exe"
 fi
 
