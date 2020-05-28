@@ -13,3 +13,6 @@ ln -sf ${HOME}/.dotfiles/tmux.conf ${HOME}/.tmux.conf
 ln -sf ${HOME}/.dotfiles/vimrc ${HOME}/.vimrc
 ln -sf ${HOME}/.dotfiles/vim-snippets ${HOME}/.vim/snippets
 ln -sf ${HOME}/.dotfiles/idauser.cfg ${HOME}/.idapro/idauser.cfg
+
+wget -O ~/.gdbinit-gef.py https://github.com/hugsy/gef/raw/master/gef.py
+wget -O ~/.dircolors https://raw.githubusercontent.com/trapd00r/LS_COLORS/master/LS_COLORS
