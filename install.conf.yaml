@@ -1,0 +1,38 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.bashrc: config/bashrc
+
+    # gdb
+    ~/.gdbinit: config/gdbinit
+    ~/.gef.rc: config/gef.rc
+    ~/.gef-scripts: config/gef-scripts
+
+    # git
+    ~/.gitconfig: config/gitconfig
+
+    # input
+    ~/.inputrc: config/inputrc
+
+    # python
+    ~/.pythonrc: config/pythonrc
+
+    # tmux
+    ~/.tmux.conf: config/tmux.conf
+
+    # vim
+    ~/.vimrc: config/vimrc
+    ~/.vim/snippets: config/vim-snippets
+
+
+- create:
+    - ~/.vim/undo
+
+- shell:
+    - wget -O ~/.dircolors -q  https://raw.githubusercontent.com/trapd00r/LS_COLORS/master/LS_COLORS
+    - wget -O ~/.gdbinit-gef.py -q https://github.com/hugsy/gef/raw/master/gef.py
+

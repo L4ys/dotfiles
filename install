@@ -1,18 +1,15 @@
-#!/bin/sh
-mkdir -p ${HOME}/.vim/undo
-mkdir -p ${HOME}/.idapro/
-ln -sf ${HOME}/.dotfiles/bashrc ${HOME}/.bashrc
-ln -sf ${HOME}/.dotfiles/ctfrc ${HOME}/.ctfrc
-ln -sf ${HOME}/.dotfiles/gdbinit ${HOME}/.gdbinit
-ln -sf ${HOME}/.dotfiles/gef.rc ${HOME}/.gef.rc
-ln -sf ${HOME}/.dotfiles/gef-scripts ${HOME}/.gef-scripts
-ln -sf ${HOME}/.dotfiles/gitconfig ${HOME}/.gitconfig
-ln -sf ${HOME}/.dotfiles/inputrc ${HOME}/.inputrc
-ln -sf ${HOME}/.dotfiles/pythonrc ${HOME}/.pythonrc
-ln -sf ${HOME}/.dotfiles/tmux.conf ${HOME}/.tmux.conf
-ln -sf ${HOME}/.dotfiles/vimrc ${HOME}/.vimrc
-ln -sf ${HOME}/.dotfiles/vim-snippets ${HOME}/.vim/snippets
-ln -sf ${HOME}/.dotfiles/idauser.cfg ${HOME}/.idapro/idauser.cfg
+#!/usr/bin/env bash
 
-wget -O ~/.gdbinit-gef.py https://github.com/hugsy/gef/raw/master/gef.py
-wget -O ~/.dircolors https://raw.githubusercontent.com/trapd00r/LS_COLORS/master/LS_COLORS
+set -e
+
+CONFIG="install.conf.yaml"
+DOTBOT_DIR="dotbot"
+
+DOTBOT_BIN="bin/dotbot"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+cd "${BASEDIR}"
+git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
+git submodule update --init --recursive "${DOTBOT_DIR}"
+
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"

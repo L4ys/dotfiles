@@ -53,11 +53,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    if [ "$(id -u)" = "0" ]; then
-        PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;31m\]$(__git_ps1)\[\033[00m\]\$ '
-    else
-        PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;31m\]$(__git_ps1)\[\033[00m\]\$ '
-    fi
+    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;31m\]$(__git_ps1)\[\033[00m\]\$ '
 else
     PS1='\u@\h:\w\$ '
 fi
@@ -88,7 +84,6 @@ __git_ps1()
     echo " ["${ref#refs/heads/}"]";
 }
 
-[ -f ~/.ctfrc ] && . ~/.ctfrc
 [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 [ -f ~/.pythonrc ] && export PYTHONSTARTUP="$HOME/.pythonrc"
 
@@ -98,12 +93,10 @@ export LC_ALL="en_US.UTF-8"
 export PATH=~/bin:$PATH
 export EDITOR=vim
 export CLICOLOR=1
-export PIN_ROOT="$HOME/bin/pin"
 
 alias ..="cd .."
 alias gdb="gdb -q"
 alias gdbm="gdb-multiarch -q"
-alias pwndbg="gdb -x ~/pwndbg/gdbinit.py"
 alias tmux="history -n;tmux -2"
 alias rip="curl orange.tw"
 alias tip="curl --socks5 127.0.0.1:9050 orange.tw"
@@ -115,7 +108,6 @@ alias strace="strace -ixv"
 alias ltrace="ltrace -iC"
 alias objdump="objdump -M intel"
 alias len="expr length"
-alias fuck="killall -9"
 alias djson="python -m json.tool"
 alias folders="find . -maxdepth 1 -type d -print0 | xargs -0 du -skh | sort -rn"
 
@@ -175,7 +167,10 @@ if [ "$(uname)" == "Darwin" ]; then
     alias deskhide="defaults write com.apple.finder CreateDesktop true;killall Finder"
     alias bubu="brew update && brew upgrade && brew cleanup"
     source $(brew --prefix)/etc/profile.d/autojump.sh
-elif grep -iq Microsoft /proc/version; then
+fi
+
+# WSL
+if grep -iq Microsoft /proc/version; then
     alias open="explorer.exe"
     alias xclip="clip.exe"
 fi
