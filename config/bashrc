@@ -171,7 +171,10 @@ fi
 
 # WSL
 if grep -iq Microsoft /proc/version; then
-    alias open="explorer.exe"
+    open()
+    {
+        explorer.exe $(wslpath -w $1)
+    }
     alias xclip="clip.exe"
 fi
 
