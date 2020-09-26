@@ -5,7 +5,9 @@
 - clean: ['~']
 
 - link:
-    ~/.bashrc: config/bashrc
+    ~/.bashrc:
+      path: config/bashrc
+      force: true
 
     # gdb
     ~/.gdbinit: config/gdbinit
@@ -26,8 +28,9 @@
 
     # vim
     ~/.vimrc: config/vimrc
-    ~/.vim/snippets: config/vim-snippets
-
+    ~/.vim/snippets:
+      path: config/vim-snippets
+      create: true
 
 - create:
     - ~/.vim/undo

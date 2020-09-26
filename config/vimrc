@@ -18,13 +18,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'othree/vim-autocomplpop'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
+    "Plug 'honza/vim-snippets'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'L4ys/molokai'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
-    Plug 'sheerun/vim-polyglot'
+    "Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 "==============================================================
